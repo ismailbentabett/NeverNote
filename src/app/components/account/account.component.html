@@ -1,0 +1,106 @@
+<!-- <ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> My Profile </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="preview">
+    <ion-avatar (click)="changeImage()">
+      <ng-container *ngIf="profile">
+        <img
+          *ngIf="profile?.imageUrl; else placheolder_avatar"
+          [src]="profile.imageUrl"
+        />
+      </ng-container>
+      <ng-template #placheolder_avatar>
+        <div class="fallback">
+          <p>Select avatar</p>
+        </div>
+      </ng-template>
+    </ion-avatar>
+  </div>
+</ion-content>
+ -->
+
+
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <ion-avatar (click)="changeImage()">
+
+        <img
+          *ngIf="profile?.imageUrl; else placheolder_avatar"
+          [src]="profile.imageUrl"
+        />
+      <ng-template #placheolder_avatar>
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ng-template>
+    </ion-avatar>
+    <div class="username-container">
+      <h2>Username</h2>
+    </div>
+    <div class="links-container">
+      <ion-list>
+        <ion-item href="mailto:email@example.com">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-label>Email</ion-label>
+        </ion-item>
+        <ion-item href="tel:+1234567890">
+          <ion-icon name="phone-portrait-outline" slot="start"></ion-icon>
+          <ion-label>Phone</ion-label>
+        </ion-item>
+        <ion-item href="https://example.com">
+          <ion-icon name="globe-outline" slot="start"></ion-icon>
+          <ion-label>Website</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
+
+<style>
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .username-container {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .links-container {
+    margin-top: 20px;
+  }
+
+  ion-item {
+    --ion-text-color: var(--ion-color-primary);
+  }
+
+  ion-item ion-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  ion-item ion-label {
+    font-size: 16px;
+  }
+</style>
+
+

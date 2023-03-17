@@ -6,6 +6,7 @@ import { AccountTab } from './account-tab.page';
 
 import { AccountTabRoutingModule } from './account-tab-routing.module';
 import { NavigationModule } from '../navigation.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { NavigationModule } from '../navigation.module';
     CommonModule,
     FormsModule,
     AccountTabRoutingModule,
-    NavigationModule
+    NavigationModule,
+    ComponentsModule
   ],
   declarations: [AccountTab]
 })

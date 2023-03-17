@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "nevernote-1d913": {
+      "hosting": {
+        "app": [
+          "nevernote-1d913"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "nevernote-1d913"
+  }
+}
