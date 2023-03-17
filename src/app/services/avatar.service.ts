@@ -33,9 +33,9 @@ export class AvatarService {
 			const imageUrl = await getDownloadURL(storageRef);
 
 			const userDocRef = doc(this.firestore, `users/${user?.uid}`);
-			await setDoc(userDocRef, {
-				imageUrl
-			});
+			await setDoc(userDocRef,{
+        imageUrl
+      }, { merge: true });
 			return true;
 		} catch (e) {
 			return null;

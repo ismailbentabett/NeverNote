@@ -13,7 +13,7 @@ import { AvatarService } from '../../services/avatar.service';
 export class AccountComponent  implements OnInit {
 
   profile: any = null;
-
+user : any;
 	constructor(
 		private avatarService: AvatarService,
 		private authService: AuthService,
@@ -26,6 +26,10 @@ export class AccountComponent  implements OnInit {
 		});
 	}
   ngOnInit() {
+   this.authService.getUser().subscribe((data) => {
+      this.user = data as any;
+    }
+    );
   }
 
 	async logout() {

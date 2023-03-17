@@ -4,13 +4,20 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  updateProfile
 } from '@angular/fire/auth';
-
+import { generateUsername } from 'friendly-username-generator';
+import { CollectionReference, DocumentData, Firestore, collection, doc, docData, setDoc } from '@angular/fire/firestore';
+//database
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private auth: Auth) {}
+  private userCollection!: CollectionReference<DocumentData>;
+
+  constructor(private auth: Auth , private db: Firestore) {
+    this.userCollection = collection(this.db, 'users');
+  }
 
   async register({ email, password }: { email: string; password: string }) {
     try {
@@ -19,6 +26,13 @@ export class AuthService {
         email,
         password
       );
+   //generate username from email
+      const username = generateUsername();
+
+      const userDocRef = doc(this.db, `users/${this.auth.currentUser?.uid}`);
+			await setDoc(userDocRef, {
+				username
+			});
       return user;
     } catch (e) {
       return null;
@@ -36,5 +50,12 @@ export class AuthService {
 
   logout() {
     return signOut(this.auth);
+  }
+
+  getUser() {
+
+    const id = this.auth.currentUser?.uid;
+    const pokemonDocumentReference = doc(this.db, `users/${id}`);
+    return docData(pokemonDocumentReference, { idField: 'id' });
   }
 }
