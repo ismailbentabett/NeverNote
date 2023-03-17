@@ -3,12 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
-export class LoginComponent  implements OnInit {
+export class SignupComponent  implements OnInit {
+
 	credentials!: FormGroup;
 
 
@@ -44,25 +46,13 @@ export class LoginComponent  implements OnInit {
 		await loading.dismiss();
 
 		if (user) {
-			this.router.navigateByUrl('/home', { replaceUrl: true });
+			this.router.navigateByUrl('/tabs/home', { replaceUrl: true });
 		} else {
 			this.showAlert('Registration failed', 'Please try again!');
 		}
 	}
 
-	async login() {
-		const loading = await this.loadingController.create();
-		await loading.present();
 
-		const user = await this.authService.login(this.credentials.value);
-		await loading.dismiss();
-
-		if (user) {
-			this.router.navigateByUrl('/tabs/home', { replaceUrl: true });
-		} else {
-			this.showAlert('Login failed', 'Please try again!');
-		}
-	}
 
 	async showAlert(header: string, message: string) {
 		const alert = await this.alertController.create({

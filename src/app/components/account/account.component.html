@@ -28,18 +28,19 @@
 </ion-content>
  -->
 
-
-
 <ion-content class="ion-padding">
   <div class="profile-container">
     <ion-avatar (click)="changeImage()">
+      <img
+        *ngIf="profile?.imageUrl; else placheolder_avatar"
+        [src]="profile.imageUrl"
+      />
 
-        <img
-          *ngIf="profile?.imageUrl; else placheolder_avatar"
-          [src]="profile.imageUrl"
-        />
       <ng-template #placheolder_avatar>
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <img
+          alt="Silhouette of a person's head"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+        />
       </ng-template>
     </ion-avatar>
     <div class="username-container">
@@ -58,6 +59,11 @@
         <ion-item href="https://example.com">
           <ion-icon name="globe-outline" slot="start"></ion-icon>
           <ion-label>Website</ion-label>
+        </ion-item>
+        <!-- logout -->
+        <ion-item (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>Logout</ion-label>
         </ion-item>
       </ion-list>
     </div>
@@ -102,5 +108,3 @@
     font-size: 16px;
   }
 </style>
-
-

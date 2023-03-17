@@ -21,6 +21,10 @@ const routes: Routes = [
       import('./navigation/tabs/tabs.module').then((m) => m.TabsPageModule),
     ...canActivate(redirectUnauthorizedToLogin),
   },
+  {
+    path: 'document',
+    loadChildren: () => import('./components/document/document.module').then( m => m.DocumentPageModule)
+  },
 ];
 @NgModule({
   imports: [

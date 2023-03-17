@@ -6,6 +6,7 @@ import { HomeTab } from './home-tab.page';
 
 import { HomeTabRoutingModule } from './home-tab-routing.module';
 import { NavigationModule } from '../navigation.module';
+import { DocumentPageModule } from 'src/app/components/document/document.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { NavigationModule } from '../navigation.module';
     CommonModule,
     FormsModule,
     HomeTabRoutingModule,
-    NavigationModule
+    NavigationModule,
+    DocumentPageModule
   ],
   declarations: [HomeTab]
 })

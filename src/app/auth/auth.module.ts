@@ -5,10 +5,10 @@ import { AuthRoutingModule } from './home-tab-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent , SignupComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -16,6 +16,6 @@ import { IonicModule } from '@ionic/angular';
     ReactiveFormsModule,
     IonicModule
   ],
-  exports: [LoginComponent]
+  exports: [LoginComponent , SignupComponent]
 })
 export class AuthModule { }

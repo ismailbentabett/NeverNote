@@ -25,13 +25,12 @@ export class AccountComponent  implements OnInit {
 			this.profile = data as any;
 		});
 	}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
   }
 
 	async logout() {
 		await this.authService.logout();
-		this.router.navigateByUrl('/', { replaceUrl: true });
+		this.router.navigateByUrl('/auth/login', { replaceUrl: true });
 	}
 
 	async changeImage() {

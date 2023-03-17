@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>document</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <quill-editor
+    class="content-editor"
+    [placeholder]="''"
+    [modules]="modules"
+    [styles]="{'min-height': '120px'}"
+    [formControl]="control"
+  >
+  </quill-editor>
+
+  {{control.value}}
+</ion-content>
+
