@@ -1,0 +1,7 @@
+{
+  "name": "NeverNote",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
