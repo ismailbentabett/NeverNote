@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { IonModal } from '@ionic/angular';
-
+import { NoteService } from 'src/app/services/note.service';
 @Component({
   selector: 'app-form-modal',
   templateUrl: './form-modal.component.html',
@@ -12,7 +12,14 @@ export class FormModalComponent implements OnInit {
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+/**
+ *
+ */
+constructor(
+    private NoteService : NoteService,
+) {
 
+}
   @ViewChild(IonModal)
   modal!: IonModal;
 
@@ -25,6 +32,7 @@ export class FormModalComponent implements OnInit {
   }
 
   confirm() {
+
     this.modal.dismiss(this.name, 'confirm');
   }
 
