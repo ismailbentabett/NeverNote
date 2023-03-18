@@ -6,6 +6,7 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 
 //form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewsModule } from '../views/views.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ViewsModule
 
   ],
   exports: [

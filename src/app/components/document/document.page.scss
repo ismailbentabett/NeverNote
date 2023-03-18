@@ -1,0 +1,19 @@
+quill-editor {
+  height: 100%;
+  width: 100%;
+  border: none !important;
+
+}
+quill-editor{ border: none !important;}
+.ql-container {
+  border: none !important;
+}
+::ng-deep .ql-container {
+  border: none !important;
+}
+.ql-toolbar {
+  border: none !important;
+}
+::ng-deep .ql-toolbar {
+  border: none !important;
+}

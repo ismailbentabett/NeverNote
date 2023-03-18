@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { IonModal } from '@ionic/angular';
 
@@ -8,6 +8,7 @@ import { IonModal } from '@ionic/angular';
   styleUrls: ['./form-modal.component.scss'],
 })
 export class FormModalComponent implements OnInit {
+  @Input() type!: string;
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
