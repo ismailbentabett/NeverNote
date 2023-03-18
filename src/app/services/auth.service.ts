@@ -16,12 +16,16 @@ export class AuthService {
   isAuthorized(userId: string) {
     return this.auth.currentUser?.uid === userId;
   }
+
+
   private userCollection!: CollectionReference<DocumentData>;
 
   constructor(private auth: Auth , private db: Firestore) {
     this.userCollection = collection(this.db, 'users');
   }
-
+getCurrentUser(){
+  return this.auth.currentUser
+}
   async register({ email, password }: { email: string; password: string }) {
     try {
       const user = await createUserWithEmailAndPassword(
