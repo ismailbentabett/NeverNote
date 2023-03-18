@@ -11,7 +11,7 @@ import { NoteService } from 'src/app/services/note.service';
 })
 export class NoteGridComponent implements OnInit {
   constructor(private auth: AuthService, private note: NoteService) {}
-  data$!: Observable<DocumentData>;
+  data$!: Observable<any>;
   ngOnInit() {
     this.getNotes();
   }
@@ -25,4 +25,6 @@ export class NoteGridComponent implements OnInit {
     }
     );
   }
+  someFunction() {
+console.log('some function')  }
 }

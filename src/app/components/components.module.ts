@@ -8,12 +8,16 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewsModule } from '../views/views.module';
 import { NoteGridComponent } from './note-grid/note-grid.component';
+import { NoteItemComponent } from './note-item/note-item.component';
+import { JsonDestringifyPipe } from '../pipes/json-destringify.pipe';
 
 @NgModule({
   declarations: [
     AccountComponent,
     FormModalComponent,
-    NoteGridComponent
+    NoteGridComponent,
+    NoteItemComponent,
+    JsonDestringifyPipe
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { NoteGridComponent } from './note-grid/note-grid.component';
   exports: [
     AccountComponent,
     FormModalComponent,
-    NoteGridComponent
+    NoteGridComponent,
+
   ],
 
 })
