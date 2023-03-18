@@ -11,8 +11,7 @@ import { Note } from 'src/app/Types/Note';
 })
 export class FormModalComponent implements OnInit {
   @Input() type!: string;
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
   }
 /**
  *
@@ -48,7 +47,11 @@ constructor(
     }
 this.NoteService.create(note)
     this.modal.dismiss(this.name, 'confirm');
+
+
   }
+
+
 
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;

@@ -7,11 +7,13 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 //form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewsModule } from '../views/views.module';
+import { NoteGridComponent } from './note-grid/note-grid.component';
 
 @NgModule({
   declarations: [
     AccountComponent,
-    FormModalComponent
+    FormModalComponent,
+    NoteGridComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { ViewsModule } from '../views/views.module';
   ],
   exports: [
     AccountComponent,
-    FormModalComponent
+    FormModalComponent,
+    NoteGridComponent
   ],
 
 })

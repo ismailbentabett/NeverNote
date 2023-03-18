@@ -9,6 +9,8 @@ import {
   deleteDoc,
   doc,
   docData,
+  query,
+  where,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -32,10 +34,10 @@ formData = (data : any) => {
     return this.data
   }
   //form data getter
-  getNotes() {
-    return collectionData(this.notesCollection, {
-      idField: 'id',
-    }) as Observable<Note[]>;
+  getNotes(userId : string) {
+    //notes where user id is equal to the current user id
+    const q = query(this.notesCollection, where('userId', '==', userId));
+    return collectionData(q, { idField: 'id' });
   }
   get(id: string, userId: string) {
     return docData(doc(this.firestore, 'notes', id, 'users', userId));
