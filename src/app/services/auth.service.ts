@@ -13,6 +13,9 @@ import { CollectionReference, DocumentData, Firestore, collection, doc, docData,
   providedIn: 'root',
 })
 export class AuthService {
+  isAuthorized(userId: string) {
+    return this.auth.currentUser?.uid === userId;
+  }
   private userCollection!: CollectionReference<DocumentData>;
 
   constructor(private auth: Auth , private db: Firestore) {
