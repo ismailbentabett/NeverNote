@@ -5,8 +5,11 @@ import {
   redirectLoggedInTo,
   canActivate,
 } from '@angular/fire/auth-guard';
+import { UpdateComponent } from './views/update/update.component';
+import { CreateComponent } from './views/create/create.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
+const redirectUnauthorizedToLogin = () =>
+  redirectUnauthorizedTo(['auth/login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['tabs']);
 
 const routes: Routes = [
@@ -23,13 +26,23 @@ const routes: Routes = [
   },
   {
     path: 'document',
-    loadChildren: () => import('./components/document/document.module').then( m => m.DocumentPageModule)
+    loadChildren: () =>
+      import('./components/document/document.module').then(
+        (m) => m.DocumentPageModule
+      ),
   },
   {
     path: 'home',
-    loadChildren: () => import('./components/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () =>
+      import('./components/home/home.module').then((m) => m.HomePageModule),
   },
+  {
+    path: 'update/:id',
+    component: UpdateComponent,
+    pathMatch: 'full',
 
+    ...canActivate(redirectUnauthorizedToLogin),
+  },
 ];
 @NgModule({
   imports: [

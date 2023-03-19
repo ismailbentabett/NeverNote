@@ -10,6 +10,7 @@ import { ViewsModule } from '../views/views.module';
 import { NoteGridComponent } from './note-grid/note-grid.component';
 import { NoteItemComponent } from './note-item/note-item.component';
 import { JsonDestringifyPipe } from '../pipes/json-destringify.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JsonDestringifyPipe } from '../pipes/json-destringify.pipe';
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    ViewsModule
+    ViewsModule,
+    RouterModule
 
   ],
   exports: [

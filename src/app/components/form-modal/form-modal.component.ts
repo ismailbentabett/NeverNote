@@ -11,6 +11,7 @@ import { Note } from 'src/app/Types/Note';
 })
 export class FormModalComponent implements OnInit {
   @Input() type!: string;
+  notedata : any;
   ngOnInit() {
   }
 /**

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output  } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NoteService } from 'src/app/services/note.service';
 @Component({
@@ -8,11 +8,17 @@ import { NoteService } from 'src/app/services/note.service';
 })
 export class DocumentPage implements OnInit {
   @Input() control!: FormControl;
+  @Input() updatenote!: any;
 
-  constructor(private NoteService : NoteService) {}
+  constructor(private NoteService: NoteService) {}
 
   ngOnInit() {
-    this.control = this.control ?? new FormControl();
+    console.log(this.updatenote);
+    if (this.updatenote) {
+      this.control = new FormControl(this.updatenote.content);
+    } else {
+      this.control = this.control ?? new FormControl();
+    }
   }
 
   modules = {
@@ -27,8 +33,7 @@ export class DocumentPage implements OnInit {
     ],
   };
   onDataChange = () => {
-    console.log(this.control.value)
-    this.NoteService.formData(this.control.value)
-  }
-
+    console.log(this.control.value);
+    this.NoteService.formData(this.control.value);
+  };
 }
