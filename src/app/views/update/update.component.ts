@@ -12,6 +12,7 @@ import { Note } from 'src/app/Types/Note';
 export class UpdateComponent implements OnInit {
   @Input() type!: string;
   @Input() note!: any;
+  @Input() id!: any;
   ngOnInit() {}
   /**
    *

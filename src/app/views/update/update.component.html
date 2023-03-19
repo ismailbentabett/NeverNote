@@ -1,4 +1,4 @@
-<ion-modal trigger="open-update-modal" (willDismiss)="onWillDismiss($event)">
+<ion-modal [trigger]="'open-update-modal'+note.id" (willDismiss)="onWillDismiss($event)">
   <ng-template>
     <ion-header>
       <ion-toolbar>

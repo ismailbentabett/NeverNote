@@ -32,6 +32,7 @@
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^6.1.9",
     "@ionic/pwa-elements": "^3.1.1",
+    "firebase": "^9.18.0",
     "friendly-username-generator": "^2.0.4",
     "ionicons": "^6.0.3",
     "ngx": "^2.4.0",

@@ -3,6 +3,7 @@
     <app-note-item
       *ngFor="let note of data$ | json | jsonDestringify"
       [note]="note"
+      id="open-update-modal"
     ></app-note-item>
   </ion-list>
 </ion-content>

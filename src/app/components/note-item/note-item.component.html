@@ -1,4 +1,5 @@
-<ion-card button id="open-update-modal">
+<ion-card button   [id]="'open-update-modal' + note.id">
+
   <ion-card-header>
     <ion-card-title>{{ note.title }}</ion-card-title>
     <ion-card-subtitle>{{
@@ -9,6 +10,8 @@
   <ion-card-content>
     <p class="ellipsis" [innerHTML]="note.content"></p>
   </ion-card-content>
+
+<app-update-view [note]="note" *ngIf="note.id" type="update"></app-update-view>
+
 </ion-card>
 
-<app-update-view [note]="note" type="update"></app-update-view>
