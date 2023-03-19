@@ -11,18 +11,12 @@ import { Note } from 'src/app/Types/Note';
 })
 export class FormModalComponent implements OnInit {
   @Input() type!: string;
-  notedata : any;
-  ngOnInit() {
-  }
-/**
- *
- */
-constructor(
-    private NoteService : NoteService,
-    private auth : AuthService
-) {
-
-}
+  notedata: any;
+  ngOnInit() {}
+  /**
+   *
+   */
+  constructor(private NoteService: NoteService, private auth: AuthService) {}
   @ViewChild(IonModal)
   modal!: IonModal;
 
@@ -35,24 +29,20 @@ constructor(
   }
 
   confirm() {
-    let data = this.NoteService.getFormData()
-    let currentUser = this.auth.getCurrentUser()
-    let uid = currentUser?.uid
-    let note :Note = {
-      id : '',
-      userId : uid,
-      title : 'test title',
-      content : data,
-      createdAt : new Date(),
-      updatedAt : new Date()
-    }
-this.NoteService.create(note)
+    let data = this.NoteService.getFormData();
+    let currentUser = this.auth.getCurrentUser();
+    let uid = currentUser?.uid;
+    let note: Note = {
+      id: '',
+      userId: uid,
+      title: data.title,
+      content: data.content,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.NoteService.create(note);
     this.modal.dismiss(this.name, 'confirm');
-
-
   }
-
-
 
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;

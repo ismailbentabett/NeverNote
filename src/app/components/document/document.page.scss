@@ -17,3 +17,27 @@ quill-editor{ border: none !important;}
 ::ng-deep .ql-toolbar {
   border: none !important;
 }
+
+
+ion-input.custom {
+  --background: #373737;
+  --color: #fff;
+  --placeholder-color: #ddd;
+  --placeholder-opacity: .8;
+  //remove focus border and shadow anf highlight
+  --border-color: #373737;
+  --border-radius: 0px;
+  --border-width: 0px;
+  --box-shadow: none;
+  --background: #373737;
+  --color: #fff;
+  --placeholder-color: #ddd;
+  --placeholder-opacity: .8;
+
+
+  --padding-bottom: 10px;
+  --padding-end: 10px;
+  --padding-start: 10px;
+  --padding-top: 10px;
+
+}

@@ -1,11 +1,21 @@
 <ion-content>
+  <ion-item>
+    <ion-input
+      autofocus="false"
+      class="custom"
+      color="dark"
+      [(ngModel)]="title"
+      (ngModelChange)="onDataChange()"
+
+    ></ion-input>
+  </ion-item>
   <quill-editor
     class="content-editor"
     [placeholder]="''"
     [modules]="modules"
     [styles]="{'min-height': '120px'}"
     [formControl]="control"
-(ngModelChange)="onDataChange()"
+    (ngModelChange)="onDataChange()"
   >
   </quill-editor>
 </ion-content>

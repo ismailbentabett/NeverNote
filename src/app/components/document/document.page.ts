@@ -9,14 +9,16 @@ import { NoteService } from 'src/app/services/note.service';
 export class DocumentPage implements OnInit {
   @Input() control!: FormControl;
   @Input() updatenote!: any;
-
+  @Input() title!: string;
   constructor(private NoteService: NoteService) {}
 
   ngOnInit() {
     console.log(this.updatenote);
     if (this.updatenote) {
       this.control = new FormControl(this.updatenote.content);
+      this.title = this.updatenote.title;
     } else {
+      this.title = '';
       this.control = this.control ?? new FormControl();
     }
   }
@@ -33,7 +35,9 @@ export class DocumentPage implements OnInit {
     ],
   };
   onDataChange = () => {
-    console.log(this.control.value);
-    this.NoteService.formData(this.control.value);
+    this.NoteService.formData({
+      title: this.title,
+      content: this.control.value,
+    });
   };
 }
