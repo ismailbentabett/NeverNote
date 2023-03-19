@@ -1,4 +1,5 @@
 <ion-modal [trigger]="'open-update-modal'+note.id" (willDismiss)="onWillDismiss($event)">
+    <!-- delete button -->
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -10,8 +11,10 @@
           <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
         </ion-buttons>
       </ion-toolbar>
+
     </ion-header>
     <ion-content class="ion-padding">
+      <ion-button expand="block" color="danger" (click)="delete()" [strong]="true">Delete</ion-button>
       <app-document [updatenote]="note"></app-document>
     </ion-content>
   </ng-template>

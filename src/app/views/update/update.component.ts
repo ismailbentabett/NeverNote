@@ -52,4 +52,8 @@ export class UpdateComponent implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
+  delete() {
+    this.NoteService.delete(this.note.id);
+    this.modal.dismiss(this.name, 'confirm');
+  }
 }

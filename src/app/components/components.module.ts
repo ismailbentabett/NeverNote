@@ -11,6 +11,12 @@ import { NoteGridComponent } from './note-grid/note-grid.component';
 import { NoteItemComponent } from './note-item/note-item.component';
 import { JsonDestringifyPipe } from '../pipes/json-destringify.pipe';
 import { RouterModule } from '@angular/router';
+import {
+  BrowserModule,
+  HammerGestureConfig,
+  HammerModule,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,7 @@ import { RouterModule } from '@angular/router';
     FormModalComponent,
     NoteGridComponent,
     NoteItemComponent,
-    JsonDestringifyPipe
+    JsonDestringifyPipe,
   ],
   imports: [
     CommonModule,
@@ -26,15 +32,20 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     ViewsModule,
-    RouterModule
-
+    RouterModule,
   ],
   exports: [
     AccountComponent,
     FormModalComponent,
     NoteGridComponent,
-
+    NoteItemComponent,
+    HammerModule,
   ],
-
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerGestureConfig,
+    },
+  ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

@@ -38,4 +38,6 @@ export class NoteItemComponent implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
+
+
 }

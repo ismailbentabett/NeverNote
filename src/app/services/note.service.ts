@@ -58,8 +58,11 @@ export class NoteService {
     const noteRef = doc(this.firestore, 'notes', id);
     return updateDoc(noteRef, note);
   }
-  delete(id: string, userId: string) {
-    if (!this.auth.isAuthorized(userId)) return;
+  delete(id: string) {
+
+    let currentUser = this.auth.getCurrentUser();
+    let uid = currentUser?.uid;
+    if (!this.auth.isAuthorized(uid as any)) return;
     const noteRef = doc(this.firestore, 'notes', id);
     return deleteDoc(noteRef);
   }
