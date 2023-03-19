@@ -10,31 +10,33 @@ import {
   doc,
   docData,
   query,
+  setDoc,
   where,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Note } from '../Types/Note';
+import { updateDoc } from 'firebase/firestore';
 @Injectable({
   providedIn: 'root',
 })
 export class NoteService {
   private readonly notesCollection!: CollectionReference<DocumentData>;
-data : any
+  data: any;
   constructor(
     private readonly firestore: Firestore,
     private auth: AuthService
   ) {
     this.notesCollection = collection(this.firestore, 'notes');
   }
-formData = (data : any) => {
-    this.data = data
-  }
+  formData = (data: any) => {
+    this.data = data;
+  };
   getFormData = () => {
-    return this.data
-  }
+    return this.data;
+  };
   //form data getter
-  getNotes(userId : string) {
+  getNotes(userId: string) {
     //notes where user id is equal to the current user id
     const q = query(this.notesCollection, where('userId', '==', userId));
     return collectionData(q, { idField: 'id' });
@@ -44,14 +46,18 @@ formData = (data : any) => {
   }
   create(note: Note) {
     if (!this.auth.isAuthorized(note.userId)) return;
-    return addDoc(this.notesCollection, note );
+    return addDoc(this.notesCollection, note);
   }
- /*  update(note: Note) {
-    if (!this.auth.isAuthorized(note.userId)) return;
+  update(note: any, id: any) {
+    console.log(note , id)
 
-    const noteRef = doc(this.firestore, 'notes', note.id);
-    return deleteDoc(noteRef);
-  } */
+    let currentUser = this.auth.getCurrentUser();
+    let uid = currentUser?.uid;
+    if (!this.auth.isAuthorized(uid as any)) return;
+    console.log( id)
+    const noteRef = doc(this.firestore, 'notes', id);
+    return updateDoc(noteRef, note);
+  }
   delete(id: string, userId: string) {
     if (!this.auth.isAuthorized(userId)) return;
     const noteRef = doc(this.firestore, 'notes', id);

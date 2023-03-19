@@ -30,6 +30,19 @@ export class UpdateComponent implements OnInit {
   }
 
   confirm() {
+    let data = this.NoteService.getFormData();
+
+    let currentUser = this.auth.getCurrentUser();
+    let uid = currentUser?.uid;
+    let newnote: any = {
+      id : this.note.id,
+      userId : uid,
+      title : data.title,
+      content : data.content,
+      createdAt : new Date(),
+      updatedAt : new Date()
+    };
+      this.NoteService.update(newnote as any, this.note.id);
     this.modal.dismiss(this.name, 'confirm');
   }
 

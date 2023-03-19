@@ -13,10 +13,14 @@ export class DocumentPage implements OnInit {
   constructor(private NoteService: NoteService) {}
 
   ngOnInit() {
-    console.log(this.updatenote);
+
     if (this.updatenote) {
       this.control = new FormControl(this.updatenote.content);
       this.title = this.updatenote.title;
+      this.NoteService.formData({
+        title: this.title,
+        content: this.control.value,
+      });
     } else {
       this.title = '';
       this.control = this.control ?? new FormControl();
